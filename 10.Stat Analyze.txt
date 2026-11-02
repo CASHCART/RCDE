@@ -1,0 +1,51 @@
+library(ggplot2)
+
+set.seed(123)
+
+# Create sample dataset
+data <- data.frame(
+  ID = 1:100,
+  Age = sample(18:60, 100, replace = TRUE),
+  Height = rnorm(100, mean = 170, sd = 10),
+  Weight = rnorm(100, mean = 70, sd = 15),
+  Gender = sample(c("Male", "Female"), 100, replace = TRUE),
+  Score = runif(100, min = 0, max = 100)
+)
+
+# Display dataset
+print(head(data))
+
+# Summary statistics
+print(summary(data))
+
+# Correlation matrix
+numeric_data <- data[, sapply(data, is.numeric)]
+correlation_matrix <- cor(numeric_data)
+
+print(correlation_matrix)
+
+# Histogram of Age
+print(
+  ggplot(data, aes(x = Age)) +
+    geom_histogram(binwidth = 5,
+                   fill = "blue", color = "black") +
+    labs(title = "Histogram of Age",
+         x = "Age", y = "Frequency")
+)
+
+# Boxplot of Height by Gender
+print(
+  ggplot(data, aes(x = Gender, y = Height, fill = Gender)) +
+    geom_boxplot() +
+    labs(title = "Boxplot of Height by Gender",
+         x = "Gender", y = "Height")
+)
+
+# Scatter plot of Height vs Weight
+print(
+  ggplot(data, aes(x = Height, y = Weight)) +
+    geom_point(color = "blue") +
+    labs(title = "Scatter Plot of Height vs Weight",
+         x = "Height", y = "Weight") +
+    geom_smooth(method = "lm", color = "red")
+)

@@ -1,0 +1,29 @@
+#Two sampled t-test
+
+set.seed(42)
+
+grpA <- rnorm(20, mean = 75, sd = 8)
+grpB <- rnorm(20, mean = 80, sd = 8)
+
+t.test(grpA, grpB, var.equal = TRUE)
+
+boxplot(grpA, grpB,
+        names = c("Method A", "Method B"))
+
+
+
+#one sample t-test
+
+set.seed(42)
+
+one_sample <- rnorm(15, 98.9, 6.6)
+t.test(one_sample, mu = 98.6)
+
+
+#paired t-test
+
+set.seed(42)
+
+before <- rnorm(15, 140, 10)
+after <- before - rnorm(15, 5, 4)
+t.test(before, after, paired = TRUE)

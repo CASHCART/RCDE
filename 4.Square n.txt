@@ -1,0 +1,9 @@
+print_squares <- function(numbers) {
+  for (num in numbers) {
+    square <- num^2
+    print(paste("Square of", num, "is", square))
+  }
+}
+
+sequence <- 1:10
+print_squares(sequence)

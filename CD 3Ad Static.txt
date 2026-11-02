@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    char ip[] = "d=a+b*c";
+    char d, a, b, c;
+    char t1[10], t2[10], op[10];
+
+    printf("Expression is: %s\n", ip);
+
+    d = ip[0];
+    a = ip[2];
+    b = ip[4];
+    c = ip[6];
+
+    sprintf(t1, "%c*%c", b, c);
+    printf("t1 = %s\n", t1);
+
+    sprintf(t2, "%c+t1", a);
+    printf("t2 = %s\n", t2);
+
+    sprintf(op, "%c=t2", d);
+    printf("%s\n", op);
+
+    return 0;
+}

@@ -1,0 +1,45 @@
+library(ggplot2)
+
+# Read CSV file
+file_path <- "path/to/your/csvfile.csv"
+data <- read.csv(file_path)
+
+# Summarize data
+print(head(data))
+str(data)
+print(summary(data))
+
+# Check missing values
+print(colSums(is.na(data)))
+
+# Histogram
+numeric_column <- "numeric_column"
+
+if (numeric_column %in% colnames(data)) {
+  print(
+    ggplot(data, aes_string(x = numeric_column)) +
+      geom_histogram(binwidth = 1,
+                     fill = "blue", color = "black") +
+      labs(title = paste("Histogram of", numeric_column),
+           x = numeric_column, y = "Frequency")
+  )
+} else {
+  print(paste("Column", numeric_column, "not found"))
+}
+
+# Boxplot
+categorical_column <- "categorical_column"
+
+if (numeric_column %in% colnames(data) &&
+    categorical_column %in% colnames(data)) {
+  print(
+    ggplot(data, aes_string(x = categorical_column,
+                            y = numeric_column)) +
+      geom_boxplot(fill = "lightblue") +
+      labs(title = paste("Boxplot of", numeric_column,
+                         "by", categorical_column),
+           x = categorical_column, y = numeric_column)
+  )
+} else {
+  print("Specified columns not found in the data")
+}

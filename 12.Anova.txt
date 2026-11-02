@@ -1,0 +1,29 @@
+#Two-way
+
+data <- data.frame(
+  score = c(78, 85, 88, 90, 91, 76, 83, 80, 89, 92,
+            81, 79, 85, 88, 82, 77, 80, 84, 86, 90),
+  group = factor(rep(c("A", "B"), each = 10)),
+  time = factor(rep(c("Morning", "Evening"),
+                    each = 5, times = 2))
+)
+
+anova_res <- aov(score ~ group * time, data = data)
+
+summary(anova_res)
+
+
+#One-Way
+
+grpA <- c(78, 85, 87, 90, 91, 76, 83, 80, 89, 92)
+grpB <- c(81, 79, 85, 88, 82, 77, 80, 84, 86, 90)
+grpC <- c(75, 82, 88, 86, 77, 78, 84, 81, 85, 89)
+
+data <- data.frame(
+  value = c(grpA, grpB, grpC),
+  group = factor(rep(c("A", "B", "C"), each = 10))
+)
+
+anova_res <- aov(value ~ group, data = data)
+
+summary(anova_res)

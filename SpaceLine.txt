@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main() {
+    FILE *fp;
+    char ch;
+    int s = 0, ln = 0;
+
+    fp = fopen("f1.txt", "r");
+
+    if (fp == NULL) {
+        printf("File is empty");
+        return 0;
+    }
+
+    while ((ch = fgetc(fp)) != EOF) {
+        if (ch == ' ') {
+            s++;
+        }
+        else if (ch == '\n') {
+            ln++;
+        }
+    }
+
+    fclose(fp);
+
+    printf("Spaces: %d\n", s);
+    printf("New line: %d\n", ln);
+
+    return 0;
+}

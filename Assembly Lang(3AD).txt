@@ -1,0 +1,97 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+void generateAssembly(char op, char arg1[],
+                      char arg2[], char result[])
+{
+    if (op == '+')
+    {
+        printf("MOV R0, %s\n", arg1);
+        printf("ADD R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (op == '-')
+    {
+        printf("MOV R0, %s\n", arg1);
+        printf("SUB R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (op == '*')
+    {
+        printf("MOV R0, %s\n", arg1);
+        printf("MUL R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else if (op == '/')
+    {
+        printf("MOV R0, %s\n", arg1);
+        printf("DIV R0, %s\n", arg2);
+        printf("MOV %s, R0\n", result);
+    }
+    else
+    {
+        printf("Unsupported operator: %c\n", op);
+    }
+}
+
+int main()
+{
+    char line[100];
+    char result[10], arg1[10], arg2[10], op;
+
+    printf("Enter three address code (end with 'exit'):\n");
+
+    while (1)
+    {
+        fgets(line, sizeof(line), stdin);
+
+        if (strncmp(line, "exit", 4) == 0)
+            break;
+
+        if (sscanf(line, "%9s = %9s %c %9s",
+                   result, arg1, &op, arg2) == 4)
+        {
+            generateAssembly(op, arg1, arg2, result);
+        }
+        else
+        {
+            printf("Invalid TAC format. Use: result = arg1 op arg2\n");
+        }
+    }
+
+    return 0;
+}
+
+/*
+Sample input
+Enter three address code (end with 'exit'):
+t1 = a + b
+t2 = c - d
+t3 = t1 * t2
+t4 = t3 / e
+exit
+
+
+Expected output
+Enter three address code (end with 'exit'):
+t1 = a + b
+MOV R0, a
+ADD R0, b
+MOV t1, R0
+
+t2 = c - d
+MOV R0, c
+SUB R0, d
+MOV t2, R0
+
+t3 = t1 * t2
+MOV R0, t1
+MUL R0, t2
+MOV t3, R0
+
+t4 = t3 / e
+MOV R0, t3
+DIV R0, e
+MOV t4, R0
+*/

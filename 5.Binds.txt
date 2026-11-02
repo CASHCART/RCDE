@@ -1,0 +1,27 @@
+# Joining columns
+df1 <- data.frame(
+  ID = c(1, 2, 3),
+  Name = c("John", "Jane", "Doe")
+)
+
+df2 <- data.frame(
+  Age = c(25, 30, 22),
+  Gender = c("Male", "Female", "Male")
+)
+
+print(df1)
+print(df2)
+
+combined_columns <- cbind(df1, df2)
+print(combined_columns)
+
+# Joining rows
+df3 <- data.frame(
+  ID = c(4, 5),
+  Name = c("Alice", "Bob"),
+  Age = c(28, 26),
+  Gender = c("Female", "Male")
+)
+
+combined_rows <- rbind(combined_columns, df3)
+print(combined_rows)

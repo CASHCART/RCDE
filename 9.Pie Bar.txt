@@ -1,0 +1,47 @@
+library(ggplot2)
+
+# Sample data
+categories <- c("Category A", "Category B",
+                "Category C", "Category D")
+values <- c(10, 20, 30, 40)
+
+labels <- categories
+slices <- values
+
+data <- data.frame(
+  category = categories,
+  values = values
+)
+
+# Pie chart using base R
+pie(slices, labels = labels,
+    main = "Pie Chart Example",
+    col = rainbow(length(slices)))
+
+legend("topright", labels,
+       fill = rainbow(length(slices)))
+
+# Pie chart using ggplot2
+print(
+  ggplot(data, aes(x = "", y = values, fill = category)) +
+    geom_bar(stat = "identity", width = 1) +
+    coord_polar(theta = "y") +
+    labs(title = "Pie Chart Example") +
+    theme_void() +
+    theme(legend.title = element_blank())
+)
+
+# Bar chart using base R
+barplot(values, names.arg = categories,
+        col = "blue", main = "Bar Chart Example",
+        ylab = "Values")
+
+# Bar chart using ggplot2
+print(
+  ggplot(data, aes(x = category, y = values, fill = category)) +
+    geom_bar(stat = "identity") +
+    labs(title = "Bar Chart Example",
+         x = "Category", y = "Values") +
+    theme_minimal() +
+    theme(legend.position = "none")
+)

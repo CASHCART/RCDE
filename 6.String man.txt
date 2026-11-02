@@ -1,0 +1,50 @@
+# Concatenating strings
+str1 <- "Hello"
+str2 <- "World"
+
+print(paste(str1, str2))
+print(paste0(str1, str2))
+
+# Extracting substring
+text <- "OpenAI"
+print(substr(text, 1, 4))
+
+# Changing case
+text <- "Hello World"
+
+print(toupper(text))
+print(tolower(text))
+
+# String length
+text <- "OpenAI"
+print(nchar(text))
+
+# Splitting strings
+text <- "Hello,World,OpenAI"
+print(strsplit(text, split = ","))
+
+# Replacing substrings
+text <- "Hello World"
+
+print(sub("World", "R", text))
+print(gsub("o", "0", text))
+
+# Trimming whitespace
+text <- " Hello World "
+print(trimws(text))
+
+# Pattern matching
+text <- c("cat", "dog", "bird", "catfish")
+
+print(grep("cat", text))
+print(grepl("cat", text))
+
+# String formatting
+name <- "John"
+age <- 25
+
+print(sprintf("Name: %s, Age: %d", name, age))
+
+# Repeating strings
+text <- "Hi"
+print(strrep(text, 3))

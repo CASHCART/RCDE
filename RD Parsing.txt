@@ -1,0 +1,49 @@
+
+#include <stdio.h>
+
+int l = 0;
+
+void A(char c[]) {
+    if (c[l] == 'a' && c[l + 1] == 'b')
+        l += 2;
+    else if (c[l] == 'a')
+        l++;
+}
+
+void S(char c[]) {
+    if (c[l] == 'c')
+        l++;
+    else
+        return;
+
+    A(c);
+
+    if (c[l] == 'd')
+        l++;
+}
+
+int main() {
+    char c[100];
+
+    printf("Enter string: ");
+    scanf("%99s", c);
+
+    S(c);
+
+    if (c[l] == '$')
+        printf("Parsing successful\n");
+    else
+        printf("Parsing unsuccessful\n");
+
+    return 0;
+}
+/*
+1. Successful parsing – cad$
+Enter string: cad$
+Parsing successful
+
+
+2. Successful parsing – cabd$
+Enter string: cabd$
+Parsing successful
+*/

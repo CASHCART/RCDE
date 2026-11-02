@@ -1,0 +1,97 @@
+# Variables and data types
+x <- 10L
+y <- 10.5
+z <- TRUE
+s <- "Hello, R!"
+
+print(x)
+print(y)
+print(z)
+print(s)
+
+# Vectors
+numeric_vector <- c(1.1, 2.2, 3.3)
+character_vector <- c("apple", "banana", "cherry")
+logical_vector <- c(TRUE, FALSE, TRUE)
+
+print(numeric_vector)
+print(character_vector)
+print(logical_vector)
+
+# Matrix
+matrix_example <- matrix(1:9, nrow = 3, ncol = 3)
+print(matrix_example)
+
+# Factor
+fruit <- factor(c("apple", "banana", "cherry",
+                  "apple", "banana"))
+print(fruit)
+print(levels(fruit))
+
+# Data frame
+df <- data.frame(
+  name = c("John", "Jane", "Doe"),
+  age = c(23, 25, 30),
+  gender = factor(c("Male", "Female", "Male"))
+)
+print(df)
+
+# List
+my_list <- list(
+  name = "John",
+  age = 25,
+  salary = 50000,
+  married = TRUE
+)
+print(my_list)
+
+# Arithmetic operators
+a <- 10
+b <- 5
+
+print(a + b)
+print(a - b)
+print(a * b)
+print(a / b)
+print(a %% b)
+print(a ^ b)
+
+# Relational operators
+print(a > b)
+print(a < b)
+print(a == b)
+print(a != b)
+print(a >= b)
+print(a <= b)
+
+# Logical operators
+a <- TRUE
+b <- FALSE
+
+print(a & b)
+print(a | b)
+print(!a)
+
+# Conditional statement
+num <- 7
+
+if (num > 0) {
+  print("Positive number")
+} else if (num < 0) {
+  print("Negative number")
+} else {
+  print("Zero")
+}
+
+# For loop
+for (i in 1:5) {
+  print(i)
+}
+
+# While loop
+count <- 1
+
+while (count <= 5) {
+  print(count)
+  count <- count + 1
+}

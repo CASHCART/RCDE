@@ -1,0 +1,111 @@
+# Vectors
+numeric_vector <- c(10, 20, 30, 40, 50)
+print(numeric_vector)
+print(numeric_vector[1])
+
+numeric_vector <- c(numeric_vector, 60)
+print(numeric_vector)
+print(sum(numeric_vector))
+
+character_vector <- c("apple", "banana", "cherry",
+                      "date", "fig")
+print(character_vector)
+print(character_vector[3])
+
+character_vector <- c(character_vector, "grape")
+new_vector <- c("kiwi", "lemon", "mango")
+print(c(character_vector, new_vector))
+
+logical_vector <- c(TRUE, FALSE, TRUE, TRUE, FALSE)
+print(logical_vector)
+print(logical_vector[2])
+
+logical_vector <- c(logical_vector, TRUE)
+print(logical_vector)
+print(sum(logical_vector))
+
+# Lists
+my_list <- list(
+  name = "John Doe",
+  age = 30,
+  gender = "Male",
+  city = "New York",
+  interests = c("programming", "reading", "traveling")
+)
+
+print(my_list)
+print(my_list$name)
+print(my_list$age)
+print(my_list$interests)
+
+# Adding and removing list elements
+my_list$occupation <- "Software Engineer"
+print(my_list)
+
+my_list$city <- NULL
+print(my_list)
+
+# Combining lists
+list1 <- list(a = 1, b = 2, c = 3)
+list2 <- list(d = 4, e = 5, f = 6)
+
+combined_list <- c(list1, list2)
+print(combined_list)
+
+# Nested lists
+nested_list <- list(
+  person1 = list(name = "Alice", age = 25),
+  person2 = list(name = "Bob", age = 30)
+)
+
+print(nested_list$person1$name)
+print(nested_list$person2$age)
+
+# Data frames
+my_df <- data.frame(
+  Name = c("John", "Alice", "Bob", "Emily"),
+  Age = c(30, 25, 35, 28),
+  Gender = c("Male", "Female", "Male", "Female"),
+  Score = c(85, 92, 78, 89)
+)
+
+print(my_df)
+print(my_df$Name)
+print(my_df[1, ])
+
+# Adding and removing columns
+my_df$Occupation <- c("Engineer", "Teacher",
+                      "Manager", "Doctor")
+print(my_df)
+
+my_df$Score <- NULL
+print(my_df)
+
+# Filtering rows
+my_df <- data.frame(
+  Name = c("John", "Alice", "Bob", "Emily"),
+  Age = c(30, 25, 35, 28),
+  Gender = c("Male", "Female", "Male", "Female"),
+  Score = c(85, 92, 78, 89)
+)
+
+filtered_df <- subset(my_df, Age > 25)
+print(filtered_df)
+
+# Selecting columns
+subset_df <- my_df[, c("Name", "Score")]
+print(subset_df)
+
+# Merging data frames
+df1 <- data.frame(
+  ID = c(1, 2, 3, 4),
+  Name = c("John", "Alice", "Bob", "Emily")
+)
+
+df2 <- data.frame(
+  ID = c(3, 4, 5, 6),
+  Score = c(85, 92, 78, 89)
+)
+
+merged_df <- merge(df1, df2, by = "ID", all = TRUE)
+print(merged_df)
